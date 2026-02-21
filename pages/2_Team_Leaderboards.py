@@ -4,7 +4,7 @@ import pandas as pd
 from logic import load_and_clean_data
 
 # The exact path to your dataset
-FILE_PATH = "/Users/harshil/PycharmProjects/ICC_Test_Dashboard/data/ICC Test Bat 3001.xlsx"
+FILE_PATH = "data/ICC Test Bat 3001.xlsx"
 
 st.set_page_config(page_title="Team Leaderboards", layout="wide", page_icon="🏆")
 
