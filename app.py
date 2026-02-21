@@ -95,7 +95,50 @@ def main():
     """Main function to run the Streamlit app."""
     # Set page config must be the first Streamlit command
     st.set_page_config(page_title="ICC Test Stats Hub", layout="wide", page_icon="🏏")
+    # --- MODERN UI & SLEEK MODULES ---
+    st.markdown("""
+        <style>
+        /* 1. RENAME 'app' TO 'Home' */
+        /* Target the first sidebar link text */
+        [data-testid="stSidebarNav"] ul li:first-child a span:nth-child(2) {
+            visibility: hidden;
+            line-height: 0;
+        }
+        [data-testid="stSidebarNav"] ul li:first-child a span:nth-child(2)::after {
+            content: "Home";
+            visibility: visible;
+            display: block;
+            line-height: 1.5;
+            margin-left: -20px; /* Aligns 'Home' with the other menu items */
+            font-weight: 500;
+        }
 
+        /* 2. SLEEK MODULES HEADER */
+        [data-testid="stSidebarNav"]::before {
+            content: "MODULES";
+            font-size: 12px;
+            font-weight: 700;
+            color: rgba(128, 128, 128, 0.5);
+            letter-spacing: 1.5px;
+            padding: 20px 0 10px 20px;
+            display: block;
+        }
+
+        /* 3. SLEEK METRIC CARDS (Hover Effects) */
+        [data-testid="stMetric"] {
+            background-color: rgba(128, 128, 128, 0.05);
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        [data-testid="stMetric"]:hover {
+            transform: translateY(-3px);
+            border-color: #ff4b4b;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        </style>
+    """, unsafe_allow_html=True)
     # Load the data
     try:
         df = load_and_clean_data(FILE_PATH)
